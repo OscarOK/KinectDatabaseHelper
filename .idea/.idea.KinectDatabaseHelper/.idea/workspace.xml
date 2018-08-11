@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d86a6e4-7a32-4e6f-b959-dc90bdf37cb2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Class1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KinectDatabaseHelper.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KinectDatabaseHelper.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Class1.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +16,29 @@
       <file leaf-file-name="Class1.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Class1.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+            <state relative-caret-position="90">
+              <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
               <folding>
-                <marker date="1533971300872" expanded="true" signature="30:70" ph="{...}" />
-                <marker date="1533971300872" expanded="true" signature="56:68" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="6:27" ph="..." />
+                <marker date="1533972678127" expanded="true" signature="59:5131" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="93:5129" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="447:760" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="473:705" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="535:642" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="826:1037" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="1083:1289" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="1326:1646" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="1418:1476" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="1514:1610" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="1685:1859" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="1726:1784" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="1913:2309" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="2033:2104" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="2142:2216" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="2236:2299" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="2344:4800" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="4834:4950" ph="{...}" />
+                <marker date="1533972678127" expanded="true" signature="4983:5105" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -74,6 +89,11 @@
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="KinectDatabaseHelper (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="KinectDatabaseHelper (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="KinectDatabaseHelper" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -108,12 +128,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533971015470</updated>
-      <workItem from="1533971023022" duration="277000" />
+      <workItem from="1533971023022" duration="1649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277000" />
+    <option name="totallyTimeSpent" value="1649000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -126,7 +146,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Errors In Solution" />
@@ -137,7 +156,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="NuGet" weight="0.32954547" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -162,11 +181,29 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Class1.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        <state relative-caret-position="90">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
           <folding>
-            <marker date="1533971300872" expanded="true" signature="30:70" ph="{...}" />
-            <marker date="1533971300872" expanded="true" signature="56:68" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="6:27" ph="..." />
+            <marker date="1533972678127" expanded="true" signature="59:5131" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="93:5129" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="447:760" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="473:705" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="535:642" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="826:1037" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="1083:1289" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="1326:1646" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="1418:1476" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="1514:1610" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="1685:1859" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="1726:1784" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="1913:2309" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="2033:2104" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="2142:2216" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="2236:2299" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="2344:4800" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="4834:4950" ph="{...}" />
+            <marker date="1533972678127" expanded="true" signature="4983:5105" ph="{...}" />
           </folding>
         </state>
       </provider>

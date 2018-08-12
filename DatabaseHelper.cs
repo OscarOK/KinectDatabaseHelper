@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Data;
+using System.IO;
+using System.Text;
 using Npgsql;
 
 namespace KinectDatabaseHelper
@@ -60,7 +64,7 @@ namespace KinectDatabaseHelper
             return string.Format(
                 "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
                 Host, User, DBname, Port, Password
-                );
+            );
         }
 
         public bool TryConnection()
@@ -86,11 +90,11 @@ namespace KinectDatabaseHelper
             {
                 return false;
             }
-            
+
             _conn.Close();
             return true;
         }
-        
+
         private void Comm(string strCommand)
         {
             TryConnection();
@@ -155,7 +159,74 @@ namespace KinectDatabaseHelper
             var strCommand = "DROP TABLE IF EXISTS " + TableName + ";";
             Comm(strCommand);
         }
-        
-        
+
+        public void GetCsv(string path)
+        {
+            CreateTable();
+            path = Path.Combine(path, TableName + ".csv");
+
+            Console.WriteLine("Path to file: {0}", path);
+
+            if (File.Exists(path))
+            {
+                Console.WriteLine("The file already exist, it will be overwrite.");
+            }
+
+            // GETTING ALL TABLE INFO
+            TryConnection();
+            var strCommand = "SELECT * FROM " + TableName + ";";
+            var dataAdapter = new NpgsqlDataAdapter(strCommand, _conn);
+            var dataSet = new DataSet(TableName + "_set");
+
+            dataSet.Reset();
+            dataAdapter.Fill(dataSet, TableName);
+            
+            
+
+            var stringBuilder = new StringBuilder();
+
+            // WRITTING INTO FILE, TABLE HEADER
+            foreach (DataColumn column in dataSet.Tables[TableName].Columns)
+            {
+                stringBuilder.Append(column.ColumnName).Append(",");
+            }
+
+            stringBuilder.Append("\n");
+
+            // WRITTING INTO FILE TABLE CONTENT
+            foreach (DataRow row in dataSet.Tables[TableName].Rows)
+            {
+                foreach (var item in row.ItemArray)
+                {
+                    stringBuilder.Append(item).Append(",");
+                }
+
+                stringBuilder.Append("\n");
+            }
+
+            StreamWriter file = null;
+
+            try
+            {
+                file = File.CreateText(path);
+                file.WriteLine(stringBuilder.ToString());
+            }
+            catch (System.IO.IOException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                CloseConnection();
+                if (file != null)
+                {
+                    file.Close();
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,16 @@
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\Playground.exe
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\Playground.pdb
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\KinectDatabaseHelper.dll
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\KinectDatabaseHelper.pdb
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\RiderProjects\KinectDatabaseHelper\Playground\obj\Debug\Playground.csprojResolveAssemblyReference.cache
+D:\RiderProjects\KinectDatabaseHelper\Playground\obj\Debug\Playground.exe
+D:\RiderProjects\KinectDatabaseHelper\Playground\obj\Debug\Playground.pdb
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\System.ValueTuple.dll
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\Npgsql.dll
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\System.ValueTuple.xml
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\Npgsql.pdb
+D:\RiderProjects\KinectDatabaseHelper\Playground\bin\Debug\Npgsql.xml

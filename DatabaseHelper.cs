@@ -30,6 +30,16 @@ namespace KinectDatabaseHelper
             get { return this._tablename; }
         }
 
+        public DatabaseHelper(string password)
+        {
+            TableName = "kinect_joints";
+            Password = password;
+            Host = "localhost";
+            User = "postgres";
+            DBname = "postgres";
+            Port = "5432";
+        }
+
         public DatabaseHelper(string tableName, string password)
         {
             TableName = tableName;
@@ -38,6 +48,11 @@ namespace KinectDatabaseHelper
             User = "postgres";
             DBname = "postgres";
             Port = "5432";
+        }
+
+        public void demo()
+        {
+            Console.Write("hello");
         }
 
         private string GetConnectionString()

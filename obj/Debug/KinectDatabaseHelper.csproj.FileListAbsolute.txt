@@ -1,12 +1,14 @@
 D:\RiderProjects\KinectDatabaseHelper\bin\Debug\KinectDatabaseHelper.dll
 D:\RiderProjects\KinectDatabaseHelper\bin\Debug\KinectDatabaseHelper.pdb
+D:\RiderProjects\KinectDatabaseHelper\bin\Debug\Npgsql.dll
 D:\RiderProjects\KinectDatabaseHelper\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\RiderProjects\KinectDatabaseHelper\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\RiderProjects\KinectDatabaseHelper\bin\Debug\Npgsql.pdb
+D:\RiderProjects\KinectDatabaseHelper\bin\Debug\Npgsql.xml
 D:\RiderProjects\KinectDatabaseHelper\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\RiderProjects\KinectDatabaseHelper\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\RiderProjects\KinectDatabaseHelper\obj\Debug\KinectDatabaseHelper.csprojResolveAssemblyReference.cache
 D:\RiderProjects\KinectDatabaseHelper\obj\Debug\KinectDatabaseHelper.dll
 D:\RiderProjects\KinectDatabaseHelper\obj\Debug\KinectDatabaseHelper.pdb
-D:\RiderProjects\KinectDatabaseHelper\bin\Debug\Npgsql.dll
-D:\RiderProjects\KinectDatabaseHelper\bin\Debug\Npgsql.pdb
-D:\RiderProjects\KinectDatabaseHelper\bin\Debug\Npgsql.xml
+D:\RiderProjects\KinectDatabaseHelper\bin\Debug\Microsoft.Kinect.dll
+D:\RiderProjects\KinectDatabaseHelper\bin\Debug\Microsoft.Kinect.xml

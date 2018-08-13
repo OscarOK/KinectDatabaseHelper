@@ -10,8 +10,11 @@ namespace Playground
         {
             DatabaseHelper kdh = new DatabaseHelper("DEMO", "12345");
             kdh.CreateTable();
+
+//            kdh.ademo();
+//            kdh.GetCsv("C:\\Users\\Oscar Eduardo\\Desktop");
             
-            kdh.GetCsv("C:\\Users\\Oscar Eduardo\\Desktop");
+            kdh.insertDemo();
 
             Console.WriteLine("FINISH");
         }

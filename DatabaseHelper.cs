@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Data;
 using System.IO;
 using System.Text;
+using Microsoft.Kinect;
 using Npgsql;
 
 namespace KinectDatabaseHelper
@@ -52,11 +52,6 @@ namespace KinectDatabaseHelper
             User = "postgres";
             DBname = "postgres";
             Port = "5432";
-        }
-
-        public void demo()
-        {
-            Console.Write("hello");
         }
 
         private string GetConnectionString()
@@ -211,7 +206,7 @@ namespace KinectDatabaseHelper
                 file = File.CreateText(path);
                 file.WriteLine(stringBuilder.ToString());
             }
-            catch (System.IO.IOException e)
+            catch (IOException e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -227,6 +222,55 @@ namespace KinectDatabaseHelper
                     file.Close();
                 }
             }
+        }
+        
+        public void ademo()
+        {
+            TryConnection();
+            var strCommand = "SELECT * FROM " + TableName + ";";
+            var dataAdapter = new NpgsqlDataAdapter(strCommand, _conn);
+            var dataSet = new DataSet(TableName + "_set");
+
+            dataSet.Reset();
+            dataAdapter.Fill(dataSet, TableName);
+            
+            foreach (DataColumn column in dataSet.Tables[TableName].Columns)
+            {
+                Console.Write("\"@" + column.ColumnName + "\" + ");
+            }
+            
+            CloseConnection();
+        }
+        
+        public void InsertBody(Body body)
+        {
+            if (!TryConnection() || !body.IsTracked) return;
+            
+            var strCommand = "SELECT * FROM " + TableName + ";";
+            var dataAdapter = new NpgsqlDataAdapter(strCommand, _conn);
+            var commandBuilder = new NpgsqlCommandBuilder(dataAdapter);
+            var dataSet = new DataSet(TableName + "_set");
+                
+            dataSet.Clear();
+            dataAdapter.Fill(dataSet, TableName);
+
+            var dataTable = dataSet.Tables[TableName];
+
+            var newRow = dataTable.NewRow();
+
+            newRow["body_id"] = body.TrackingId;
+            newRow["time"] = DateTime.Now;
+
+            foreach (var joint in body.Joints)
+            {
+                newRow[joint.Key.ToString().ToLower() + "_x"] = joint.Value.Position.X;
+                newRow[joint.Key.ToString().ToLower() + "_y"] = joint.Value.Position.Y;
+                newRow[joint.Key.ToString().ToLower() + "_z"] = joint.Value.Position.Z;
+            }
+
+            dataTable.Rows.Add(newRow);
+            dataAdapter.Update(dataSet, TableName);
+
         }
     }
 }

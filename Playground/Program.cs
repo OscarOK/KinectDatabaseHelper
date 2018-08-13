@@ -13,8 +13,6 @@ namespace Playground
 
 //            kdh.ademo();
 //            kdh.GetCsv("C:\\Users\\Oscar Eduardo\\Desktop");
-            
-            kdh.insertDemo();
 
             Console.WriteLine("FINISH");
         }

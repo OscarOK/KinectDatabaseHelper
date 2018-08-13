@@ -247,30 +247,42 @@ namespace KinectDatabaseHelper
             if (!TryConnection() || !body.IsTracked) return;
             
             var strCommand = "SELECT * FROM " + TableName + ";";
+            var transaction = _conn.BeginTransaction();
             var dataAdapter = new NpgsqlDataAdapter(strCommand, _conn);
             var commandBuilder = new NpgsqlCommandBuilder(dataAdapter);
             var dataSet = new DataSet(TableName + "_set");
                 
-            dataSet.Clear();
+            dataSet.Reset();
             dataAdapter.Fill(dataSet, TableName);
 
             var dataTable = dataSet.Tables[TableName];
 
             var newRow = dataTable.NewRow();
 
-            newRow["body_id"] = body.TrackingId;
-            newRow["time"] = DateTime.Now;
-
-            foreach (var joint in body.Joints)
+            try
             {
-                newRow[joint.Key.ToString().ToLower() + "_x"] = joint.Value.Position.X;
-                newRow[joint.Key.ToString().ToLower() + "_y"] = joint.Value.Position.Y;
-                newRow[joint.Key.ToString().ToLower() + "_z"] = joint.Value.Position.Z;
+                newRow["body_id"] = body.TrackingId;
+                newRow["time"] = DateTime.Now;
+
+                foreach (var joint in body.Joints)
+                {
+                    newRow[joint.Key.ToString().ToLower() + "_x"] = joint.Value.Position.X;
+                    newRow[joint.Key.ToString().ToLower() + "_y"] = joint.Value.Position.Y;
+                    newRow[joint.Key.ToString().ToLower() + "_z"] = joint.Value.Position.Z;
+                }
+
+                dataTable.Rows.Add(newRow);
+                dataAdapter.Update(dataSet, TableName);
             }
-
-            dataTable.Rows.Add(newRow);
-            dataAdapter.Update(dataSet, TableName);
-
+            catch (NpgsqlException e)
+            {
+                Console.WriteLine(e.Message);
+                transaction.Rollback();
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
     }
 }

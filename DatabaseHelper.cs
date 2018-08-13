@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Text;
@@ -224,24 +225,6 @@ namespace KinectDatabaseHelper
             }
         }
         
-        public void ademo()
-        {
-            TryConnection();
-            var strCommand = "SELECT * FROM " + TableName + ";";
-            var dataAdapter = new NpgsqlDataAdapter(strCommand, _conn);
-            var dataSet = new DataSet(TableName + "_set");
-
-            dataSet.Reset();
-            dataAdapter.Fill(dataSet, TableName);
-            
-            foreach (DataColumn column in dataSet.Tables[TableName].Columns)
-            {
-                Console.Write("\"@" + column.ColumnName + "\" + ");
-            }
-            
-            CloseConnection();
-        }
-        
         public void InsertBody(Body body)
         {
             if (!TryConnection() || !body.IsTracked) return;
@@ -272,6 +255,7 @@ namespace KinectDatabaseHelper
                 }
 
                 dataTable.Rows.Add(newRow);
+                transaction.Commit();
                 dataAdapter.Update(dataSet, TableName);
             }
             catch (NpgsqlException e)
@@ -282,6 +266,52 @@ namespace KinectDatabaseHelper
             finally
             {
                 CloseConnection();
+            }
+        }
+        
+        public void InsertBodies(List<Body> bodies)
+        {
+            foreach (var body in bodies)
+            {
+                if (body.IsTracked)
+                {
+                    InsertBody(body);
+                }
+            }
+        }
+        
+        // Run the kinect sensor and save bodies by frame
+        public void RunKinect(ref KinectSensor kinectSensor)
+        {
+            if (kinectSensor == null)
+            {
+                return;
+            }
+
+            if (!kinectSensor.IsOpen)
+            {
+                kinectSensor.Open();
+            }
+
+            var reader = kinectSensor.OpenMultiSourceFrameReader(FrameSourceTypes.Color | FrameSourceTypes.Depth |
+                                                                 FrameSourceTypes.Infrared | FrameSourceTypes.Body);
+
+            reader.MultiSourceFrameArrived += Reader_MultiSourceFrameArrived;
+        }
+
+        public void Reader_MultiSourceFrameArrived(object sender, MultiSourceFrameArrivedEventArgs e)
+        {
+            var reference = e.FrameReference.AcquireFrame();
+
+            using (var frame = reference.BodyFrameReference.AcquireFrame())
+            {
+                if (frame != null)
+                {
+                    List<Body> bodies = new List<Body>(new Body[frame.BodyFrameSource.BodyCount]);
+
+                    frame.GetAndRefreshBodyData(bodies);
+                    InsertBodies(bodies);
+                }
             }
         }
     }
